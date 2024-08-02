@@ -3,7 +3,7 @@ import {sql} from "@vercel/postgres";
 
 const rateLimitStore: { [key: string]: { count: number, lastRequest: number } } = {};
 const RATE_LIMIT_WINDOW = 30 * 1000;
-const MAX_REQUESTS = 5;
+const MAX_REQUESTS = 1000;
 
 
 function setCooldown(ip: string){
