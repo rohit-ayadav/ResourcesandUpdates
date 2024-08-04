@@ -122,6 +122,7 @@ export default function ShortenPage() {
                     <h1 style={headerTitleStyle}>Resources and Updates</h1>
                 </div>
                 <nav style={navStyle}>
+                    <a href="https://resourcesandcarrier.online" style={navLinkStyle}>Home</a>
                     <a href="https://resourcesandcarrier.online/#about" style={navLinkStyle}>About</a>
                     <a href="https://resourcesandcarrier.online/#services" style={navLinkStyle}>Services</a>
                     <a href="https://resourcesandcarrier.online/#contact" style={navLinkStyle}>Contact</a>
@@ -146,7 +147,7 @@ export default function ShortenPage() {
 
 
 
-                    
+
                     <label>
                         <input
                             type="radio"

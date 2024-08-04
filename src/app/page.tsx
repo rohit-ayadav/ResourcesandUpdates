@@ -53,6 +53,37 @@ ol {
     margin: 0;
     padding-left: 20px;
 }
+@media (max-width: 768px) {
+    body {
+                    font-family: 'Arial', sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    color: #333;
+                    background-color: #f4f4f4;
+                }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav {
+        margin-top: 10px;
+        flex-direction: row;
+    }
+    .navLink {
+        margin: 5px 0;
+    }
+    .cta img {
+        height: 90px;
+    }
+    .cta h1 {
+        font-size: 34px;
+    }
+    .cta h2 {
+        font-size: 22px;
+    }
+}
 
             `}</style>
 
