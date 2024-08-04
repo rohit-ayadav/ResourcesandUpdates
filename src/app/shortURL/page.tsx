@@ -126,8 +126,7 @@ export default function ShortenPage() {
                     <a href="https://resourcesandcarrier.online/#about" style={navLinkStyle}>About</a>
                     <a href="https://resourcesandcarrier.online/#services" style={navLinkStyle}>Services</a>
                     <a href="https://resourcesandcarrier.online/#contact" style={navLinkStyle}>Contact</a>
-                    <a href="https://resourcesandcarrier.online/#faq" style={navLinkStyle}>FAQ</a>
-                </nav>
+                   </nav>
             </header>
 
             <main style={mainContentStyle}>
