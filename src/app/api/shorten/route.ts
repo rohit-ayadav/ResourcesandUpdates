@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import {sql} from "@vercel/postgres";
-import { Analytics } from "@vercel/analytics/react"
+
 
 const rateLimitStore: { [key: string]: { count: number, lastRequest: number } } = {};
 const RATE_LIMIT_WINDOW = 30 * 1000;
