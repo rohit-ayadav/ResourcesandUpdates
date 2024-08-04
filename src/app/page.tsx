@@ -1,9 +1,11 @@
-"use client"; // This directive makes the component a client component, allowing for interactivity
+"use client"; // Mark as a Client Component
 
-import React from 'react';
-import styles from './page.module.css'; // Assuming you have a CSS module for styles
+import React, { useState } from 'react';
+import styles from './page.module.css';
 
 const Page = () => {
+    const [navOpen, setNavOpen] = useState(false);
+
     const handleShare = () => {
         const message = `Follow this to get the latest job and internship updates!
 
@@ -11,13 +13,16 @@ const Page = () => {
     WhatsApp Channel: https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t
     WhatsApp Group: https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B`;
         navigator.clipboard.writeText(message);
-        // No alert needed here, the button text can change to "Copied!" or similar
     };
+
+    const toggleNav = () => {
+        setNavOpen(prev => !prev);
+    };
+
     return (
         <div className={styles.container}>
-            {/* <div className={styles.container}> */}
-            {/* Global Styles */}
             <style jsx global>{`
+                /* Global Styles */
                 body {
                     font-family: 'Arial', sans-serif;
                     margin: 0;
@@ -27,73 +32,154 @@ const Page = () => {
                     background-color: #f4f4f4;
                 }
 
-                h2 {
-                    font-size: 28px;
-                    color: #4CAF50;
+                /* Header Styles */
+                .header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 20px; /* Added padding for better spacing */
+                    background-color: #fff;
+                    border-bottom: 1px solid #ddd;
+                    width: 100%;
+                    position: fixed; /* Fix header at top */
+                    top: 0; /* Fix to top */
+                    left: 0; /* Fix to left */
+                    z-index: 1000; /* Ensure it stays on top */
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow for better distinction */
+                    transition: padding 0.3s ease; /* Smooth transition for padding */
                 }
-                    ol {
-    list-style-type: decimal;
-    margin-left: 20px;
-}
 
-p {
-    font-size: 18px;
-    line-height: 1.8;
-}
+                .logoContainer {
+                    display: flex;
+                    align-items: center;
+                }
 
-strong {
-    font-weight: bold;
-}
+                .logo {
+                    height: 50px;
+                    margin-right: 10px;
+                }
 
-em {
-    font-style: italic;
-}
+                .communityName {
+                    font-size: 24px;
+                }
 
-ol {
-    margin: 0;
-    padding-left: 20px;
-}
-@media (max-width: 768px) {
-    body {
-                    font-family: 'Arial', sans-serif;
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
+                .nav {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .navLink {
+                    margin: 0 10px;
+                    text-decoration: none;
                     color: #333;
-                    background-color: #f4f4f4;
                 }
 
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .nav {
-        margin-top: 10px;
-        flex-direction: row;
-    }
-    .navLink {
-        margin: 5px 0;
-    }
-    .cta img {
-        height: 90px;
-    }
-    .cta h1 {
-        font-size: 34px;
-    }
-    .cta h2 {
-        font-size: 22px;
-    }
-}
+                .hamburger {
+                    display: none;
+                    cursor: pointer;
+                }
 
+                .hamburger div {
+                    width: 25px;
+                    height: 3px;
+                    background-color: #333;
+                    margin: 5px 0;
+                    transition: 0.3s;
+                }
+
+                /* Media Queries for Mobile View */
+                @media (max-width: 768px) {
+                    .header {
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+
+                    .nav {
+                        display: none;
+                        flex-direction: column;
+                        width: 100%;
+                        position: absolute;
+                        top: 60px; /* Adjust based on header height */
+                        left: 0;
+                        background-color: #fff;
+                        border-top: 1px solid #ddd;
+                    }
+
+                    .nav.show {
+                        display: flex;
+                    }
+
+                    .hamburger {
+                        display: block;
+                    }
+
+                    .hamburger div {
+                        background-color: #333;
+                    }
+
+                    .cta img {
+                        height: 90px;
+                    }
+
+                    .cta h1 {
+                        font-size: 34px;
+                    }
+
+                    .cta h2 {
+                        font-size: 22px;
+                    }
+                }
+
+                /* Main Content Adjustment */
+                .mainContent {
+                    padding: 20px;
+                    margin-top: 80px; /* Ensure content starts below the fixed header */
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                /* Footer Styles */
+                .footer {
+                    padding: 20px;
+                    background-color: #fff;
+                    border-top: 1px solid #ddd;
+                }
+
+                .footerContent {
+                    text-align: center;
+                }
+
+                .socialLinks {
+                    margin: 10px 0;
+                }
+
+                .socialLink {
+                    margin: 0 10px;
+                    text-decoration: none;
+                    color: blue;
+                }
+
+                .footerText {
+                    font-size: 14px;
+                }
+
+                .footerLink {
+                    text-decoration: none;
+                    color: #333;
+                }
             `}</style>
 
-            {/* Header Section */}
             <header className={styles.header}>
                 <div className={styles.logoContainer}>
                     <img src="https://i.ibb.co/F8NQGPp/logo.jpg" alt="Resources and Updates Logo" className={styles.logo} />
                     <h1 className={styles.communityName}>Resources and Updates</h1>
                 </div>
-                <nav className={styles.nav}>
+                <div className={styles.hamburger} onClick={toggleNav}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <nav className={`${styles.nav} ${navOpen ? styles.show : ''}`}>
                     <a href="#about" className={styles.navLink}>About</a>
                     <a href="#services" className={styles.navLink}>Services</a>
                     <a href="#contact" className={styles.navLink}>Contact</a>
@@ -101,14 +187,12 @@ ol {
                 </nav>
             </header>
 
-            {/* Main Content Section */}
             <main className={styles.mainContent}>
                 <div className={styles.cta}>
                     <div className={styles.ctaContent}>
                         <img src="https://i.ibb.co/F8NQGPp/logo.jpg" alt="Resources and Updates Logo" className={styles.logo1} />
                         <h1 className={styles.communityName}>Resources and Updates</h1>
                         <h2 className={styles.tagline}>Your go-to community for job and internship opportunities in CSE</h2>
-
                         <div className={styles.buttons}>
                             <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" className={styles.shareButton}>Follow WhatsApp Channel</a>
                             <a href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" className={styles.shareButton}>Join WhatsApp Group</a>
@@ -117,7 +201,6 @@ ol {
                         </div>
                     </div>
                 </div>
-
 
                 <section id="about" className={styles.section}>
                     <div className={styles.contentContainer}>
@@ -135,7 +218,6 @@ ol {
                         </p>
                     </div>
                 </section>
-
 
                 <section id="services" className={styles.section}>
                     <div className={styles.contentContainer}>
@@ -158,56 +240,71 @@ ol {
                             </li><br />
                             <li>
                                 <strong>URL Shortener Service:</strong>
-                                Simplify your link management with our <a href="https://resourcesandcarrier.online/shortURL" className={styles.navLink}>custom URL shortener</a>. Efficiently shorten, manage, and share your URLs to enhance your online presence and streamline your communication.
-                            </li><br />
-                            <li>
-                                <strong>Career Development Workshops:</strong>
-                                Participate in exclusive workshops and webinars designed to boost your career skills. Topics range from resume building and interview preparation to advanced technical skills and industry insights.
-                            </li><br />
-                            <li>
-                                <strong>Personalized Job Alerts:</strong>
-                                Customize your job search with our personalized alert system. Set your preferences and receive notifications about opportunities that match your interests and career goals.
-                            </li><br />
-                        </ol>
+                                Simplify your link management with our <a href="https://resourcesandcarrier.online/shortURL" className={styles.navLink}>URL Shortener Service</a>. Create, track, and manage short links for your important resources and share them effortlessly.
+                            </li>
+                        </ol><br />
                         <p>
-                            Our services are tailored to help you thrive in the competitive field of CSE. Join us today to take full advantage of these resources and propel your career forward!
+                            <em>Join us today to take advantage of these services and accelerate your career in CSE!</em>
                         </p>
                     </div>
                 </section>
-
 
                 <section id="contact" className={styles.section}>
                     <div className={styles.contentContainer}>
                         <h2>Contact Us</h2>
                         <p>
-                            Have any questions, feedback, or need assistance? We’re here to help! Reach out to us at:
+                            We’d love to hear from you! If you have any questions, feedback, or inquiries, please reach out to us through the following channels:
                         </p>
+                        <ul>
+                            <li>
+                                <strong>Email:</strong> <a href="mailto:resourcesandupdates@gmail.com" className={styles.navLink}>resourcesandupdates@gmail.com</a>
+                            </li>
+                            <li>
+                                <strong>LinkedIn:</strong> <a href="https://linkedin.com/company/resources-and-updates/" className={styles.navLink}>Follow us on LinkedIn</a>
+                            </li>
+                            <li>
+                                <strong>WhatsApp Channel:</strong> <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" className={styles.navLink}>Join our WhatsApp Channel</a>
+                            </li>
+                            <li>
+                                <strong>WhatsApp Group:</strong> <a href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" className={styles.navLink}>Join our WhatsApp Group</a>
+                            </li>
+                        </ul>
+                        <br />
                         <p>
-                            <a href="mailto:resourcesandupdates@gmail.com" className={styles.email}>resourcesandupdates@gmail.com</a>
+                            <em>We look forward to connecting with you and helping you succeed in your career!</em>
                         </p>
                     </div>
                 </section>
 
                 <section id="faq" className={styles.section}>
                     <div className={styles.contentContainer}>
-                        <h2>Frequently Asked Questions (FAQ)</h2>
-                        <p>
-                            <strong>Q1:</strong> How do I join the WhatsApp group or channel?<br />
-                            <strong>A:</strong> Click on the links provided above to join our WhatsApp group or channel.
-                        </p>
-                        <p>
-                            <strong>Q2:</strong> How can I get featured on the community?<br />
-                            <strong>A:</strong> Reach out to us with your achievements or projects, and we’ll be happy to feature you!
-                        </p>
-                        <p>
-                            <strong>Q3:</strong> Can I contribute resources to the community?<br />
-                            <strong>A:</strong> Yes, we welcome contributions! Contact us via email for more details.
-                        </p>
+                        <h2>Frequently Asked Questions</h2>
+                        <dl>
+                            <dt><strong>How can I stay updated with the latest job opportunities?</strong></dt>
+                            <dd>
+                                <p>
+                                    Follow our <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" className={styles.navLink}>WhatsApp Channel</a> and <a href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" className={styles.navLink}>WhatsApp Group</a> for real-time updates on job and internship openings.
+                                </p>
+                            </dd>
+                            <br />
+                            <dt><strong>Can I contribute to your resources or suggest a topic?</strong></dt>
+                            <dd>
+                                <p>
+                                    Absolutely! We welcome contributions and suggestions. Please contact us via <a href="mailto:resourcesandupdates@gmail.com" className={styles.navLink}>email</a> with your ideas or proposals.
+                                </p>
+                            </dd>
+                            <br />
+                            <dt><strong>How can I access your educational resources?</strong></dt>
+                            <dd>
+                                <p>
+                                    Our educational resources are available on our website. Explore our <a href="#services" className={styles.navLink}>Services</a> section for more information on the resources we offer.
+                                </p>
+                            </dd>
+                        </dl>
                     </div>
                 </section>
             </main>
 
-            {/* Footer Section */}
             <footer className={styles.footer}>
                 <div className={styles.footerContent}>
                     <p>&copy; 2024 Resources and Updates. All rights reserved.</p>
