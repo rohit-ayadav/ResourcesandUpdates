@@ -1,5 +1,5 @@
-"use client"
-// app/shorten/page.tsx
+"use client"; // This directive makes the component a client component, allowing for interactivity
+
 import { useState } from 'react';
 
 export default function ShortenPage() {
@@ -116,99 +116,101 @@ export default function ShortenPage() {
 
     return (
         <div style={containerStyle}>
-            <style>
-                {`
-                    @keyframes spin {
-                        0% { transform: rotate(0deg); }
-                        100% { transform: rotate(360deg); }
-                    }
-                    .spinner {
-                        border: 4px solid #f3f3f3;
-                        border-radius: 50%;
-                        border-top: 4px solid #007bff;
-                        width: 24px;
-                        height: 24px;
-                        animation: spin 1s linear infinite;
-                    }
-                `}
-            </style>
             <header style={headerStyle}>
-                <h1 style={headerTitleStyle}>Resources and Updates Community</h1>
-                <p>Stay updated with the latest job and internship opportunities!</p>
-                <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" target="_blank" rel="noopener noreferrer" style={linkStyle}>
-                    Follow on WhatsApp
-                </a>
+                <div style={headerContentStyle}>
+                    <img src="https://i.ibb.co/F8NQGPp/logo.jpg" alt="Resources and Updates Logo" style={logoStyle}/>
+                    <h1 style={headerTitleStyle}>Resources and Updates</h1>
+                </div>
+                <nav style={navStyle}>
+                    <a href="https://resourcesandcarrier.online/#about" style={navLinkStyle}>About</a>
+                    <a href="https://resourcesandcarrier.online/#services" style={navLinkStyle}>Services</a>
+                    <a href="https://resourcesandcarrier.online/#contact" style={navLinkStyle}>Contact</a>
+                    <a href="https://resourcesandcarrier.online/#faq" style={navLinkStyle}>FAQ</a>
+                </nav>
             </header>
 
-            <h2 style={subHeaderStyle}>URL Shortener</h2>
-            <div style={modeSelectorStyle}>
-                <label>
-                    <input
-                        type="radio"
-                        name="mode"
-                        value="single"
-                        checked={mode === 'single'}
-                        onChange={() => setMode('single')}
-                    />
-                    Shorten a Single URL
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="mode"
-                        value="multiple"
-                        checked={mode === 'multiple'}
-                        onChange={() => setMode('multiple')}
-                    />
-                    Shorten Multiple URLs
-                </label>
-            </div>
-            <form onSubmit={handleSubmit} style={formStyle}>
-                {mode === 'single' && (
-                    <input
-                        type="url"
-                        placeholder="Enter URL"
-                        value={url}
-                        onChange={(e) => setUrl(e.target.value)}
-                        required
-                        style={inputStyle}
-                    />
-                )}
-                {mode === 'multiple' && (
-                    <textarea
-                        placeholder="Enter text with URLs"
-                        value={text}
-                        onChange={(e) => setText(e.target.value)}
-                        required
-                        style={{ ...inputStyle, height: '200px', resize: 'vertical' }}
-                    />
-                )}
-                <button
-                    type="submit"
-                    style={buttonStyle}
-                    onMouseOver={(e) => (e.currentTarget.style.backgroundColor = buttonHoverStyle.backgroundColor)}
-                    onMouseOut={(e) => (e.currentTarget.style.backgroundColor = buttonStyle.backgroundColor)}
-                >
-                    {loading ? <div className="spinner"></div> : 'Shorten'}
-                </button>
-            </form>
-            {error && <p style={errorStyle}>{error}</p>}
-            {(shortenedUrl || shortenedText) && (
-                <div style={resultStyle}>
-                    <p>Shortened Result:</p>
-                    <pre style={resultTextStyle}>{mode === 'single' ? shortenedUrl : shortenedText}</pre>
-                    <div style={buttonContainerStyle}>
-                        <button onClick={handleCopy} style={actionButtonStyle}>Copy</button>
-                        <button onClick={handleShare} style={actionButtonStyle}>Share</button>
-                    </div>
+            <main style={mainContentStyle}>
+                <h2 style={subHeaderStyle}>URL Shortener</h2>
+                <div style={modeSelectorStyle}>
+                    <label>
+                        <input
+                            type="radio"
+                            name="mode"
+                            value="single"
+                            checked={mode === 'single'}
+                            onChange={() => setMode('single')}
+                        />
+                        Shorten a Single URL
+                    </label>
+
+
+
+
+                    
+                    <label>
+                        <input
+                            type="radio"
+                            name="mode"
+                            value="multiple"
+                            checked={mode === 'multiple'}
+                            onChange={() => setMode('multiple')}
+                        />
+                        Shorten Multiple URLs
+                    </label>
                 </div>
-            )}
+                <form onSubmit={handleSubmit} style={formStyle}>
+                    {mode === 'single' && (
+                        <input
+                            type="url"
+                            placeholder="Enter URL"
+                            value={url}
+                            onChange={(e) => setUrl(e.target.value)}
+                            required
+                            style={inputStyle}
+                        />
+                    )}
+                    {mode === 'multiple' && (
+                        <textarea
+                            placeholder="Enter text with URLs"
+                            value={text}
+                            onChange={(e) => setText(e.target.value)}
+                            required
+                            style={{ ...inputStyle, height: '200px', resize: 'vertical' }}
+                        />
+                    )}
+                    <button
+                        type="submit"
+                        style={buttonStyle}
+                        onMouseOver={(e) => (e.currentTarget.style.backgroundColor = buttonHoverStyle.backgroundColor)}
+                        onMouseOut={(e) => (e.currentTarget.style.backgroundColor = buttonStyle.backgroundColor)}
+                    >
+                        {loading ? <div className="spinner"></div> : 'Shorten'}
+                    </button>
+                </form>
+                {error && <p style={errorStyle}>{error}</p>}
+                {(shortenedUrl || shortenedText) && (
+                    <div style={resultStyle}>
+                        <p>Shortened Result:</p>
+                        <pre style={resultTextStyle}>{mode === 'single' ? shortenedUrl : shortenedText}</pre>
+                        <div style={buttonContainerStyle}>
+                            <button onClick={handleCopy} style={actionButtonStyle}>Copy</button>
+                            <button onClick={handleShare} style={actionButtonStyle}>Share</button>
+                        </div>
+                    </div>
+                )}
+            </main>
 
             <footer style={footerStyle}>
                 <p>Join our community for more updates!</p>
-                <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" target="_blank" rel="noopener noreferrer" style={linkStyle}>
+                {/* <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" target="_blank" rel="noopener noreferrer" style={linkStyle}>
                     Follow on WhatsApp
-                </a>
+                </a> */}
+                <div style={socialLinksStyle}>
+                    <a href="https://linkedin.com/company/resources-and-updates/" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>LinkedIn</a>
+                    <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Channel</a>
+                    <a href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Group</a>
+                </div>
+                <p style={footerTextStyle}>For inquiries, email us at <a href="mailto:resourcesandupdates@gmail.com" style={linkStyle}>resourcesandupdates@gmail.com</a></p>
             </footer>
         </div>
     );
@@ -227,11 +229,43 @@ const headerStyle = {
     padding: '20px',
     backgroundColor: '#f8f9fa',
     borderRadius: '8px',
+    position: 'relative' as const,
+};
+
+const headerContentStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: '10px',
+};
+
+const logoStyle = {
+    height: '80px',
+    width: '80px',
+    borderRadius: '50%',
+    marginRight: '15px',
 };
 
 const headerTitleStyle = {
     fontSize: '2.5em',
     margin: '0',
+    fontWeight: 'bold',
+};
+
+const navStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+};
+
+const navLinkStyle = {
+    color: '#007bff',
+    textDecoration: 'none' as const,
+    margin: '0 15px',
+    fontSize: '1.2em',
+};
+
+const mainContentStyle = {
+    textAlign: 'center' as const,
 };
 
 const subHeaderStyle = {
@@ -320,4 +354,19 @@ const footerStyle = {
     padding: '10px',
     backgroundColor: '#f8f9fa',
     borderRadius: '8px',
+};
+
+const socialLinksStyle = {
+    margin: '10px 0',
+};
+
+const socialLinkStyle = {
+    color: '#007bff',
+    textDecoration: 'none' as const,
+    margin: '0 10px',
+    fontSize: '1.1em',
+};
+
+const footerTextStyle = {
+    marginTop: '10px',
 };
