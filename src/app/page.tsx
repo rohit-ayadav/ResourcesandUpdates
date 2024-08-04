@@ -18,7 +18,7 @@ const Page = () => {
             {/* Header Section */}
             <header className={styles.header}>
                 <div className={styles.logoContainer}>
-                    <img src="/logo.png" alt="Community Logo" className={styles.logo} />
+                    <img src="https://ibb.co/F8NQGPp" alt="Community Logo" className={styles.logo} />
                     <h1 className={styles.communityName}>Resources and Updates</h1>
                 </div>
                 <nav className={styles.nav}>
@@ -32,7 +32,7 @@ const Page = () => {
             <main className={styles.mainContent}>
                 <div className={styles.cta}>
                     <div className={styles.ctaContent}>
-                        <img src="/logo.png" alt="Community Logo" className={styles.logo} />
+                        <img src="https://ibb.co/F8NQGPp" alt="Community Logo" className={styles.logo} />
                         <h1>Resources and Updates</h1>
                         <h2>Your go-to community for job and internship opportunities in CSE</h2>
                         <button onClick={handleShare} className={styles.shareButton}>
