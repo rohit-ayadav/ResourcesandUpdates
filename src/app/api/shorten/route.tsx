@@ -1,7 +1,7 @@
-// app/shorten/route.tsx
+// app/shorten/page.tsx
 import { useState } from 'react';
 
-export default function ShortenRoute() {
+export default function ShortenPage() {
     const [url, setUrl] = useState('');
     const [shortenedUrl, setShortenedUrl] = useState('');
 
@@ -9,14 +9,14 @@ export default function ShortenRoute() {
         e.preventDefault();
         try {
             const response = await fetch('/api/shorten', {
-                method: 'POST',
+                method: 'POST', // Ensure this is POST
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ url }),
             });
             const result = await response.json();
-            setShortenedUrl(result.shortenedUrl);
+            setShortenedUrl(result.shorturl);
         } catch (error) {
             console.error('Error:', error);
         }
