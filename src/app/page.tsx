@@ -7,11 +7,15 @@ const Page = () => {
     const [navOpen, setNavOpen] = useState(false);
 
     const handleShare = () => {
-        const message = `Follow this to get the latest job and internship updates!
+        const message = `📢 Stay updated with the latest job and internship opportunities!
 
-    LinkedIn: https://linkedin.com/company/resources-and-updates/
-    WhatsApp Channel: https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t
-    WhatsApp Group: https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B`;
+Connect with us:
+
+🔗 LinkedIn: https://www.linkedin.com/company/resources-and-updates/
+📲 WhatsApp Channel: https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t
+
+Share these links with your network and help everyone stay informed! 🌟
+`;
         navigator.clipboard.writeText(message);
     };
 
@@ -85,7 +89,7 @@ const Page = () => {
                         />
                         <h1 className={styles.communityName}>Resources and Updates</h1>
                         <h2 className={styles.tagline}>
-                            Your go-to community for job and internship opportunities in CSE
+                            Your go-to community for job/internship opportunities in CSE
                         </h2>
                         <div className={styles.buttons}>
                             <a
@@ -109,7 +113,7 @@ const Page = () => {
                            
                         </div>
                         <button onClick={handleShare} className={styles.shareButton}>
-                                Share with Friends 
+                                Share with your Friends 
                             </button>
                     </div>
                 </div>
