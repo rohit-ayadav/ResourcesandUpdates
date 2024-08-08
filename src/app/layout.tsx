@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
  
 // These styles apply to every route in the application
 import './globals.css'
- 
+
 export const metadata: Metadata = {
   title: 'Resources and Updates',
   description: 'Our go-to community for job and internship opportunities in CSE Field',
