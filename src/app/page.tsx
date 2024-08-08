@@ -45,7 +45,7 @@ Share these links with your network and help everyone stay informed! 🌟
             <header style={headerStyle}>
                 <div style={headerContentStyle}>
                     <img
-                        src="https://i.ibb.co/F8NQGPp/logo.jpg"
+                        src="https://ibb.co/m9qfTtX"
                         alt="Resources and Updates Logo"
                         style={logoStyle}
                     />
@@ -83,7 +83,7 @@ Share these links with your network and help everyone stay informed! 🌟
                 <div className={styles.cta}>
                     <div className={styles.ctaContent}>
                         <img
-                            src="https://i.ibb.co/F8NQGPp/logo.jpg"
+                            src="https://ibb.co/m9qfTtX"
                             alt="Resources and Updates Logo"
                             className={styles.logo1}
                         />

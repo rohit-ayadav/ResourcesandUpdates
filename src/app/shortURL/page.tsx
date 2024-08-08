@@ -118,7 +118,7 @@ export default function ShortenPage() {
         <div style={containerStyle}>
             <header style={headerStyle}>
                 <div style={headerContentStyle}>
-                    <img src="https://i.ibb.co/F8NQGPp/logo.jpg" alt="Resources and Updates Logo" style={logoStyle}/>
+                    <img src="https://ibb.co/m9qfTtX" alt="Resources and Updates Logo" style={logoStyle}/>
                     <h1 style={headerTitleStyle}>Resources and Updates</h1>
                 </div>
                 <nav style={navStyle}>
