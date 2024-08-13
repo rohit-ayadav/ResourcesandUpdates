@@ -463,6 +463,11 @@ const shareButtonStyle = {
     border: 'none',
     cursor: 'pointer',
     marginTop: '1rem',
+    texeAlign: 'center',
+    display: 'block',
+    width: '100%',
+    textDecoration: 'none',
+    
 };
 
 const sectionStyle = {
