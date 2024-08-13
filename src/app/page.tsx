@@ -45,10 +45,17 @@ Share these links with your network and help everyone stay informed! 🌟
             <header style={headerStyle}>
                 <div style={headerContentStyle}>
                     <img
-                        src="https://ibb.co/m9qfTtX"
+                        src="logo.jpg"
                         alt="Resources and Updates Logo"
                         style={logoStyle}
                     />
+                    {/* <img 
+                        src="https://ibb.co/m9qfTtX"
+                        alt="Resources and Updates Logo"
+                        style={logoStyle}
+                        // width={500}  // Set appropriate width
+                        // height={300} // Set appropriate height
+                    /> */}
                     <h1 style={headerTitleStyle}>Resources and Updates</h1>
                 </div>
                 <nav style={navStyle}>
@@ -83,7 +90,7 @@ Share these links with your network and help everyone stay informed! 🌟
                 <div className={styles.cta}>
                     <div className={styles.ctaContent}>
                         <img
-                            src="https://ibb.co/m9qfTtX"
+                            src="/logo.jpg"
                             alt="Resources and Updates Logo"
                             className={styles.logo1}
                         />
@@ -110,11 +117,11 @@ Share these links with your network and help everyone stay informed! 🌟
                             >
                                 Follow on LinkedIn
                             </a>
-                           
+
                         </div>
                         <button onClick={handleShare} className={styles.shareButton}>
-                                Share with your Friends 
-                            </button>
+                            Share with your Friends
+                        </button>
                     </div>
                 </div>
 

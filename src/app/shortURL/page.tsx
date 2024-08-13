@@ -118,7 +118,8 @@ export default function ShortenPage() {
         <div style={containerStyle}>
             <header style={headerStyle}>
                 <div style={headerContentStyle}>
-                    <img src="https://ibb.co/m9qfTtX" alt="Resources and Updates Logo" style={logoStyle}/>
+                    <img src="/logo.jpg" alt="Resources and Updates Logo" style={logoStyle}/>
+                    {/* <img src="https://ibb.co/m9qfTtX" alt="Resources and Updates Logo" style={logoStyle}/> */}
                     <h1 style={headerTitleStyle}>Resources and Updates</h1>
                 </div>
                 <nav style={navStyle}>
@@ -142,7 +143,7 @@ export default function ShortenPage() {
                         />
                         Shorten a Single URL
                     </label>
-                    //insert a tab 
+                   
                     <pre>   </pre>
                     <label>
                         <input
@@ -367,3 +368,10 @@ const socialLinkStyle = {
 const footerTextStyle = {
     marginTop: '10px',
 };
+
+
+//This is the code to start this with terminal
+// npx create-client-app shortURL
+// cd shortURL
+// npm start
+// npm install react-router-dom
