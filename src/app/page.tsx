@@ -1,9 +1,14 @@
 "use client"; // Mark as a Client Component
 
-import React, { useState } from "react";
-import styles from "./page.module.css";
+import React, { use, useEffect, useState } from "react";
 
 const Page = () => {
+    useEffect(() => {
+        applyResponsiveStyles();
+        window.addEventListener("resize", applyResponsiveStyles);
+        return () => window.removeEventListener("resize", applyResponsiveStyles);
+    }, []);
+
     const [navOpen, setNavOpen] = useState(false);
 
     const handleShare = () => {
@@ -24,398 +29,565 @@ Share these links with your network and help everyone stay informed! 🌟
     };
 
     return (
-        <div className={styles.container}>
-            <style jsx global>{`
-        body {
-          font-family: "Arial", sans-serif;
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          color: #333;
-          background-color: #f4f4f4;
-          max-width: 100%
-        }
-          h2 {
-    font-size: 28px;
-    margin: 15px 0;
-    color: #555;
-}
-      `}</style>
+        <div>
+            <div>
+                <header style={{
+                    //header should be fixes
 
-            <header style={headerStyle}>
-                <div style={headerContentStyle}>
-                    <img
-                        src="logo.jpg"
-                        alt="Resources and Updates Logo"
-                        style={logoStyle}
-                    />
-                    {/* <img 
-                        src="https://ibb.co/m9qfTtX"
-                        alt="Resources and Updates Logo"
-                        style={logoStyle}
-                        // width={500}  // Set appropriate width
-                        // height={300} // Set appropriate height
-                    /> */}
-                    <h1 style={headerTitleStyle}>Resources and Updates</h1>
-                </div>
-                <nav style={navStyle}>
-                    <a
-                        href="https://resourcesandcarrier.online/#about"
-                        style={navLinkStyle}
-                    >
-                        About
-                    </a>
-                    <a
-                        href="https://resourcesandcarrier.online/#services"
-                        style={navLinkStyle}
-                    >
-                        Services
-                    </a>
-                    <a
-                        href="https://resourcesandcarrier.online/#contact"
-                        style={navLinkStyle}
-                    >
-                        Contact
-                    </a>
-                    <a
-                        href="https://resourcesandcarrier.online/#faq"
-                        style={navLinkStyle}
-                    >
-                        FAQ
-                    </a>
-                </nav>
-            </header>
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    backgroundColor: '#007bff',
+                    color: 'white',
+                    padding: '15px 0',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                }}>
 
-            <main className={styles.mainContent}>
-                <div className={styles.cta}>
-                    <div className={styles.ctaContent}>
+                    <div style={{
+                        maxWidth: "1200px",
+                        width: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        padding: "0 20px"
+                    }}>
                         <img
                             src="/logo.jpg"
                             alt="Resources and Updates Logo"
-                            className={styles.logo1}
+                            style={{
+                                width: "60px",
+                                height: "60px",
+                                borderRadius: "50%",
+                                boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)"
+                            }}
                         />
-                        <h1 className={styles.communityName}>Resources and Updates</h1>
-                        <h2 className={styles.tagline}>
-                            Your go-to community for job/internship opportunities in CSE
-                        </h2>
-                        <div className={styles.buttons}>
+                        <h1 style={{
+                            margin: "0",
+                            fontSize: "28px",
+                            fontWeight: "bold"
+                        }}>Resources and Updates</h1>
+                    </div>
+                </header>
+
+                {/* <nav style={{
+
+                    display: "flex",
+                    justifyContent: "center",
+                    padding: "10px 0",
+                    backgroundColor: "#0056b3",
+                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
+                    //change in hamburger menu in mobile view 
+
+
+                }}>
+                    <a href="/#about" style={{
+                        color: "white",
+                        textDecoration: "none",
+                        fontSize: "18px",
+                        padding: "0 15px",
+                        borderBottom: "2px solid transparent",
+                        transition: "border-bottom 0.3s"
+                    }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
+                        About
+                    </a>
+                    <a href="/#services" style={{
+                        color: "white",
+                        textDecoration: "none",
+                        fontSize: "18px",
+                        padding: "0 15px",
+                        borderBottom: "2px solid transparent",
+                        transition: "border-bottom 0.3s"
+                    }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
+                        Services
+                    </a>
+                    <a href="/#contact" style={{
+                        color: "white",
+                        textDecoration: "none",
+                        fontSize: "18px",
+                        padding: "0 15px",
+                        borderBottom: "2px solid transparent",
+                        transition: "border-bottom 0.3s"
+                    }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
+                        Contact
+                    </a>
+                    <a href="/#faq" style={{
+                        color: "white",
+                        textDecoration: "none",
+                        fontSize: "18px",
+                        padding: "0 15px",
+                        borderBottom: "2px solid transparent",
+                        transition: "border-bottom 0.3s"
+                    }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
+                        FAQ
+                    </a>
+                    <a href="/team" style={{
+                        color: "white",
+                        textDecoration: "none",
+                        fontSize: "18px",
+                        padding: "0 15px",
+                        borderBottom: "2px solid transparent",
+                        transition: "border-bottom 0.3s"
+                    }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
+                        Team
+                    </a>
+                </nav> */}
+                <nav style={desktopNavStyle}>
+                    <a href="/#about" style={navLinkStylenav}>About</a>
+                    <a href="/#services" style={navLinkStylenav}>Services</a>
+                    <a href="/#contact" style={navLinkStylenav}>Contact</a>
+                    <a href="/#faq" style={navLinkStylenav}>FAQ</a>
+                    <a href="/team" style={navLinkStylenav}>Team</a>
+                </nav>
+                <div style={hamburgerMenuStyle} onClick={toggleNav}>
+                    ☰
+                </div>
+
+                <nav style={mobileNavStyle(navOpen)}>
+                    <a href="/#about" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>About</a>
+                    <a href="/#services" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Services</a>
+                    <a href="/#contact" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Contact</a>
+                    <a href="/#faq" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>FAQ</a>
+                    <a href="/team" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Team</a>
+                </nav>
+            </div>
+            <main style={mainStyle}>
+                <section style={ctaStyle}>
+                    <div style={ctaContentStyle}>
+                        <img
+                            src="/logo.jpg"
+                            alt="Resources and Updates Logo"
+                            style={logoLargeStyle}
+                        />
+                        <h1 style={communityNameStyle}>Resources and Updates</h1>
+                        <h2 style={taglineStyle}>Your go-to community for job/internship opportunities in CSE</h2>
+                        <div style={buttonsContainerStyle}>
                             <a
                                 href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t"
-                                className={styles.shareButton}
+                                style={buttonStyle}
                             >
-                                Follow WhatsApp Channel
+                                📲 Follow WhatsApp Channel
                             </a>
                             <a
                                 href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B"
-                                className={styles.shareButton}
+                                style={buttonStyle}
                             >
-                                Join WhatsApp Group
+                                📱 Join WhatsApp Group
                             </a>
                             <a
                                 href="https://linkedin.com/company/resources-and-updates/"
-                                className={styles.shareButton}
+                                style={buttonStyle}
                             >
-                                Follow on LinkedIn
+                                🔗 Follow on LinkedIn
                             </a>
-
                         </div>
-                        <button onClick={handleShare} className={styles.shareButton}>
+                        <button onClick={handleShare} style={shareButtonStyle}>
                             Share with your Friends
                         </button>
                     </div>
-                </div>
+                </section>
 
-                <section id="about" className={styles.section}>
-                    <div className={styles.contentContainer}>
-                        <h2>About Us</h2>
-                        <p>
-                            Welcome to <strong>Resources and Updates</strong>! Our mission is
-                            to empower you with the best job and internship opportunities in
-                            the dynamic field of Computer Science and Engineering (CSE). As a
-                            leading community, we are committed to providing you with the
-                            latest information, valuable resources, and unparalleled
-                            networking opportunities that are crucial for your career
-                            development.
+                <section id="about" style={sectionStyle}>
+                    <div style={contentContainerStyle}>
+                        <h2 style={sectionHeaderStyle}>About Us</h2>
+                        <p style={paragraphStyle}>
+                            Welcome to <strong>Resources and Updates</strong>! Our mission is to empower you with the best job and internship opportunities in the dynamic field of Computer Science and Engineering (CSE). As a leading community, we are committed to providing you with the latest information, valuable resources, and unparalleled networking opportunities that are crucial for your career development.
                         </p>
-                        <br />
-                        <p>
-                            At <strong>Resources and Updates</strong>, we believe in the power
-                            of staying informed and connected. Whether you’re seeking your
-                            next career move or looking to expand your professional network,
-                            we offer a wealth of resources designed to support your growth and
-                            success. From curated job listings to insightful articles and
-                            industry updates, we have everything you need to stay ahead in the
-                            tech industry.
+                        <p style={paragraphStyle}>
+                            At <strong>Resources and Updates</strong>, we believe in the power of staying informed and connected. Whether you’re seeking your next career move or looking to expand your professional network, we offer a wealth of resources designed to support your growth and success. From curated job listings to insightful articles and industry updates, we have everything you need to stay ahead in the tech industry.
                         </p>
-                        <br />
-                        <p>
+                        <p style={paragraphStyle}>
                             <em>
-                                Join our community to access exclusive opportunities, connect
-                                with fellow tech enthusiasts and professionals, and navigate
-                                your career with confidence!
+                                Join our community to access exclusive opportunities, connect with fellow tech enthusiasts and professionals, and navigate your career with confidence!
                             </em>
                         </p>
                     </div>
                 </section>
 
-                <section id="services" className={styles.section}>
-                    <div className={styles.contentContainer}>
-                        <h2>Our Services</h2>
-                        <p>
-                            At <strong>Resources and Updates</strong>, we offer a range of
-                            services designed to support and enhance your career journey in
-                            Computer Science and Engineering (CSE). Our goal is to provide you
-                            with comprehensive tools and opportunities that align with your
-                            professional aspirations.
+                <section id="services" style={sectionStyle}>
+                    <div style={contentContainerStyle}>
+                        <h2 style={sectionHeaderStyle}>Our Services</h2>
+                        <p style={paragraphStyle}>
+                            At <strong>Resources and Updates</strong>, we offer a range of services designed to support and enhance your career journey in Computer Science and Engineering (CSE). Our goal is to provide you with comprehensive tools and opportunities that align with your professional aspirations.
                         </p>
-                        <br />
-                        <ol>
-                            <li>
-                                <strong>Job and Internship Updates:</strong>
-                                Receive real-time updates on the latest job and internship
-                                opportunities specifically curated for CSE students and
-                                professionals. Our listings are regularly updated to ensure you
-                                have access to the most relevant positions in the industry.
+                        <ol style={listStyle}>
+                            <li style={listItemStyle}>
+                                <strong>Job and Internship Updates:</strong> Receive real-time updates on the latest job and internship opportunities specifically curated for CSE students and professionals. Our listings are regularly updated to ensure you have access to the most relevant positions in the industry.
                             </li>
-                            <br />
-                            <li>
-                                <strong>Networking Opportunities:</strong>
-                                Engage with industry experts, alumni, and fellow students
-                                through our networking events and online forums. Build valuable
-                                connections that can open doors to new opportunities and
-                                collaborations in the tech world.
+                            <li style={listItemStyle}>
+                                <strong>Networking Opportunities:</strong> Engage with industry experts, alumni, and fellow students through our networking events and online forums. Build valuable connections that can open doors to new opportunities and collaborations in the tech world.
                             </li>
-                            <br />
-                            <li>
-                                <strong>Educational Resources:</strong>
-                                Explore a vast collection of resources including study
-                                materials, career advice, skill development tips, and more.
-                                Whether you’re looking to enhance your technical skills or gain
-                                insights into industry trends, our resources are tailored to
-                                support your educational and professional growth.
+                            <li style={listItemStyle}>
+                                <strong>Educational Resources:</strong> Explore a vast collection of resources including study materials, career advice, skill development tips, and more. Whether you’re looking to enhance your technical skills or gain insights into industry trends, our resources are tailored to support your educational and professional growth.
                             </li>
-                            <br />
-                            <li>
-                                <strong>URL Shortener Service:</strong>
-                                Simplify your link management with our{" "}
-                                <a
-                                    href="https://resourcesandcarrier.online/shortURL"
-                                    className={styles.navLink}
-                                >
+                            <li style={listItemStyle}>
+                                <strong>URL Shortener Service:</strong> Simplify your link management with our{" "}
+                                <a href="/shortURL" style={navLinkStyle}>
                                     URL Shortener Service
                                 </a>
-                                . Create, track, and manage short links for your important
-                                resources and share them effortlessly.
+                                . Create, track, and manage short links for your important resources and share them effortlessly.
                             </li>
                         </ol>
-                        <br />
-                        <p>
+                        <p style={paragraphStyle}>
                             <em>
-                                Join us today to take advantage of these services and accelerate
-                                your career in CSE!
+                                Join us today to take advantage of these services and accelerate your career in CSE!
                             </em>
                         </p>
                     </div>
                 </section>
 
-                <section id="contact" className={styles.section}>
-                    <div className={styles.contentContainer}>
-                        <h2>Contact Us</h2>
-                        <p>
-                            We’d love to hear from you! If you have any questions, feedback,
-                            or inquiries, please reach out to us through the following
-                            channels:
+                <section id="contact" style={sectionStyle}>
+                    <div style={contentContainerStyle}>
+                        <h2 style={sectionHeaderStyle}>Contact Us</h2>
+                        <p style={paragraphStyle}>
+                            We’d love to hear from you! If you have any questions, feedback, or inquiries, please reach out to us through the following channels:
                         </p>
-                        <ul>
-                            <li>
+                        <ul style={listStyle}>
+                            <li style={listItemStyle}>
                                 <strong>Email:</strong>{" "}
-                                <a
-                                    href="mailto:resourcesandupdates@gmail.com"
-                                    className={styles.navLink}
-                                >
+                                <a href="mailto:resourcesandupdates@gmail.com" style={navLinkStyle}>
                                     resourcesandupdates@gmail.com
                                 </a>
                             </li>
-                            <li>
+                            <li style={listItemStyle}>
                                 <strong>LinkedIn:</strong>{" "}
-                                <a
-                                    href="https://linkedin.com/company/resources-and-updates/"
-                                    className={styles.navLink}
-                                >
+                                <a href="https://linkedin.com/company/resources-and-updates/" style={navLinkStyle}>
                                     Follow us on LinkedIn
                                 </a>
                             </li>
-                            <li>
+                            <li style={listItemStyle}>
                                 <strong>WhatsApp Channel:</strong>{" "}
-                                <a
-                                    href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t"
-                                    className={styles.navLink}
-                                >
+                                <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" style={navLinkStyle}>
                                     Join our WhatsApp Channel
                                 </a>
                             </li>
-                            <li>
+                            <li style={listItemStyle}>
                                 <strong>WhatsApp Group:</strong>{" "}
-                                <a
-                                    href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B"
-                                    className={styles.navLink}
-                                >
+                                <a href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" style={navLinkStyle}>
                                     Join our WhatsApp Group
                                 </a>
                             </li>
                         </ul>
-                        <br />
-                        <p>
+                        <p style={paragraphStyle}>
                             <em>
-                                We look forward to connecting with you and helping you succeed
-                                in your career!
+                                We look forward to connecting with you and helping you succeed in your career!
                             </em>
                         </p>
                     </div>
                 </section>
 
-                <section id="faq" className={styles.section}>
-                    <div className={styles.contentContainer}>
-                        <h2>Frequently Asked Questions</h2>
-                        <dl>
-                            <dt>
-                                <strong>
-                                    How can I stay updated with the latest job opportunities?
-                                </strong>
+                <section id="faq" style={sectionStyle}>
+                    <div style={contentContainerStyle}>
+                        <h2 style={sectionHeaderStyle}>Frequently Asked Questions</h2>
+                        <div style={faqItemStyle}>
+                            <h3 style={faqQuestionStyle}>
+                                How can I stay updated with the latest job opportunities?
+                            </h3>
+                            <p style={faqAnswerStyle}>
+                                Follow our{" "}
+                                <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" style={navLinkStyle}>
+                                    WhatsApp Channel
+                                </a>{" "}
+                                or{" "}
+                                <a href="https://linkedin.com/company/resources-and-updates/" style={navLinkStyle}>
+                                    LinkedIn page
+                                </a>{" "}
+                                for real-time updates on job and internship listings.
+                            </p>
+                        </div>
+                        <div style={faqItemStyle}>
+                            <h3 style={faqQuestionStyle}>
+                                Can I contribute to the community?
+                            </h3>
+                            <p style={faqAnswerStyle}>
+                                Yes! We welcome contributions in the form of articles, job leads, and networking tips. Feel free to reach out to us via email at{" "}
+                                <a href="mailto:resourcesandupdates@gmail.com" style={navLinkStyle}>
+                                    resourcesandupdates@gmail.com
+                                </a>.
+                            </p>
+                        </div>
+                        <div style={faqItemStyle}>
+                            <h3 style={faqQuestionStyle}>
+                                What types of jobs are featured in your updates?
+                            </h3>
+                            <p style={faqAnswerStyle}>
+                                We feature a wide range of positions, including internships, entry-level roles, and experienced positions in the field of Computer Science and Engineering. Our goal is to provide opportunities that cater to various career stages.
+                            </p>
+                        </div>
+                        <div style={faqItemStyle}>
+                            <dt style={{ fontWeight: "bold" }}>
+                                How can I access the URL Shortener Service?
                             </dt>
                             <dd>
                                 <p>
-                                    Follow our{" "}
-                                    <a
-                                        href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t"
-                                        className={styles.navLink}
-                                    >
-                                        WhatsApp Channel
+                                    You can use our{" "}
+                                    <a href="/shortURL" style={{ color: "#007bff", textDecoration: "none" }}>
+                                        URL Shortener Service
                                     </a>{" "}
-                                    and{" "}
-                                    <a
-                                        href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B"
-                                        className={styles.navLink}
-                                    >
-                                        WhatsApp Group
-                                    </a>{" "}
-                                    for real-time updates on job and internship openings.
+                                    to manage your short links efficiently.
                                 </p>
-                            </dd>
-                            <br />
-                            <dt>
-                                <strong>
-                                    Can I contribute to your resources or suggest a topic?
-                                </strong>
-                            </dt>
-                            <dd>
-                                <p>
-                                    Absolutely! We welcome contributions and suggestions. Please
-                                    contact us via{" "}
-                                    <a
-                                        href="mailto:resourcesandupdates@gmail.com"
-                                        className={styles.navLink}
-                                    >
-                                        email
-                                    </a>{" "}
-                                    with your ideas or proposals.
-                                </p>
-                            </dd>
-                            <br />
-                            <dt>
-                                <strong>How can I access your educational resources?</strong>
-                            </dt>
-                            <dd>
-                                <p>
-                                    Our educational resources are available on our website.
-                                    Explore our{" "}
-                                    <a href="#services" className={styles.navLink}>
-                                        Services
-                                    </a>{" "}
-                                    section for more information on the resources we offer.
-                                </p>
-                            </dd>
-                        </dl>
+                            </dd></div>
                     </div>
                 </section>
             </main>
 
-            <footer className={styles.footer}>
-                <div className={styles.footerContent}>
-                    <p>&copy; 2024 Resources and Updates. All rights reserved.</p>
-                    <div className={styles.socialLinks}>
-                        <a
-                            href="https://linkedin.com/company/resources-and-updates/"
-                            className={styles.socialLink}
-                        >
-                            LinkedIn
-                        </a>
-                        <a
-                            href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t"
-                            className={styles.socialLink}
-                        >
-                            WhatsApp Channel
-                        </a>
-                        <a
-                            href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B"
-                            className={styles.socialLink}
-                        >
-                            WhatsApp Group
-                        </a>
-                    </div>
-                    <p className={styles.footerText}>
-                        For inquiries, email us at{" "}
-                        <a
-                            href="mailto:resourcesandupdates@gmail.com"
-                            className={styles.footerLink}
-                        >
-                            resourcesandupdates@gmail.com
-                        </a>
-                    </p>
-                </div>
+
+            <footer style={{
+                backgroundColor: "#007bff",
+                color: "white",
+                textAlign: "center",
+                padding: "15px 0",
+                position: "relative",
+                bottom: "0",
+                width: "100%",
+                boxShadow: "0 -4px 8px rgba(0, 0, 0, 0.1)"
+            }}>
+                <p style={{ margin: "0" }}>
+                    &copy; {new Date().getFullYear()} Resources and Updates. All rights reserved.
+                </p>
+
+                <p style={footerTextStyle}>For inquiries, contact us at{" "}
+                    <a href="mailto:resourcesandupdates@gmail.com" style={navLinkStylef}>
+                        resourcesandupdates@gmail.com
+                    </a>
+                </p>
             </footer>
         </div>
     );
 };
 
-export default Page;
-
 const headerStyle = {
-    marginBottom: "20px",
-    padding: "20px",
-    backgroundColor: "#f8f9fa",
-    borderRadius: "8px",
-    position: "relative" as const,
+    width: '100%',
+    backgroundColor: '#f8f9fa',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    zIndex: 1000,
 };
 
 const headerContentStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: "10px",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '1rem',
+    maxWidth: '1200px',
+    margin: '0 auto',
 };
 
 const logoStyle = {
-    height: "80px",
-    width: "80px",
-    borderRadius: "50%",
-    marginRight: "15px",
+    height: '50px',
+    width: 'auto',
 };
 
 const headerTitleStyle = {
-    fontSize: "2.5em",
-    margin: "0",
-    fontWeight: "bold",
+    fontSize: '1.5rem',
+    margin: 0,
 };
 
 const navStyle = {
-    display: "flex",
-    justifyContent: "center",
+    display: 'flex',
+    gap: '1rem',
+    marginTop: '0.5rem',
 };
 
-const navLinkStyle = {
-    color: "#007bff",
-    textDecoration: "none" as const,
-    margin: "0 15px",
-    fontSize: "1.2em",
+
+const navLinkStylef = {
+    textDecoration: 'none',
+    color: '#fff',
 };
+
+const mainStyle = {
+    padding: '2rem',
+    marginTop: '60px', // Adjust for fixed header height
+};
+
+const ctaStyle = {
+    textAlign: 'center',
+    marginBottom: '2rem',
+};
+
+const ctaContentStyle = {
+    maxWidth: '800px',
+    margin: '0 auto',
+};
+
+const logoLargeStyle = {
+    height: '150px',
+    width: 'auto',
+    marginBottom: '1rem',
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: '1rem',
+
+};
+
+const communityNameStyle = {
+    fontSize: '2rem',
+    margin: '0.5rem 0',
+};
+
+const taglineStyle = {
+    fontSize: '1.2rem',
+    color: '#6c757d',
+    margin: '0.5rem 0',
+};
+
+const buttonsContainerStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '0.5rem',
+    justifyContent: 'center',
+};
+
+const buttonStyle = {
+    backgroundColor: '#007bff',
+    color: '#fff',
+    padding: '0.5rem 1rem',
+    borderRadius: '4px',
+    textDecoration: 'none',
+    display: 'inline-block',
+    textAlign: 'center',
+    width: 'calc(50% - 0.5rem)',
+};
+
+const shareButtonStyle = {
+    backgroundColor: '#28a745',
+    color: '#fff',
+    padding: '0.5rem 1rem',
+    borderRadius: '4px',
+    border: 'none',
+    cursor: 'pointer',
+    marginTop: '1rem',
+};
+
+const sectionStyle = {
+    padding: '2rem 0',
+};
+
+const contentContainerStyle = {
+    maxWidth: '800px',
+    margin: '0 auto',
+    padding: '0 1rem',
+};
+
+const sectionHeaderStyle = {
+    fontSize: '1.8rem',
+    marginBottom: '1rem',
+};
+
+const paragraphStyle = {
+    fontSize: '1rem',
+    lineHeight: '1.6',
+    marginBottom: '1rem',
+};
+
+const listStyle = {
+    listStyleType: 'disc',
+    paddingLeft: '2rem',
+};
+
+const listItemStyle = {
+    marginBottom: '1rem',
+};
+
+const faqItemStyle = {
+    marginBottom: '1rem',
+    border: '1px solid #dee2e6',
+    borderRadius: '4px',
+    padding: '1rem',
+};
+
+const faqQuestionStyle = {
+    margin: 0,
+    fontSize: '1.1rem',
+    fontWeight: "bold",
+};
+
+const faqAnswerStyle = {
+    margin: '0.5rem 0 0',
+};
+
+const footerStyle = {
+    backgroundColor: '#f8f9fa',
+    padding: '1rem',
+    textAlign: 'center',
+};
+
+const footerTextStyle = {
+    margin: 0,
+    fontSize: '0.9rem',
+};
+
+const mobileNavStyle = (navOpen: boolean) => ({
+    display: navOpen ? "flex" : "none",
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: "#0056b3",
+    position: "absolute",
+    top: "60px",
+    left: 0,
+    width: "100%",
+    padding: "10px 0",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    zIndex: 1000,
+});
+
+const hamburgerMenuStyle = {
+    display: "none",
+    fontSize: "24px",
+    marginRight: "20px",
+    cursor: "pointer",
+};
+
+// Inline styles for navigation links
+const desktopNavStyle = {
+    display: "flex",
+    justifyContent: "center",
+    padding: "10px 0",
+    backgroundColor: "#0056b3",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
+};
+const navLinkStylenav = {
+
+    color: "white",
+    textDecoration: "none",
+    fontSize: "18px",
+    padding: "0 15px",
+    borderBottom: "2px solid transparent",
+    transition: "border-bottom 0.3s"
+
+};
+const navLinkStyle = {
+
+    color: "blue",
+    textDecoration: "none",
+    // fontSize: "18px",
+    // padding: "0 15px",
+    borderBottom: "2px solid transparent",
+    transition: "border-bottom 0.3s",
+    fontweight: "bold",
+
+};
+
+const handleMouseOver = (e: { currentTarget: { style: { borderBottom: string; }; }; }) => e.currentTarget.style.borderBottom = "2px solid white";
+const handleMouseOut = (e: { currentTarget: { style: { borderBottom: string; }; }; }) => e.currentTarget.style.borderBottom = "2px solid transparent";
+
+const applyResponsiveStyles = () => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    if (mediaQuery.matches) {
+        // Mobile View
+        Object.assign(hamburgerMenuStyle, { display: "block" });
+        Object.assign(desktopNavStyle, { display: "none" });
+    } else {
+        // Desktop View
+        Object.assign(hamburgerMenuStyle, { display: "none" });
+        Object.assign(desktopNavStyle, { display: "flex" });
+    }
+};
+
+
+export default Page;

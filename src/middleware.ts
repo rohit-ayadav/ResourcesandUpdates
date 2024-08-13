@@ -11,6 +11,7 @@ export async function middleware(request: NextRequest) {
     if (!shortpath){
         return
     }
+    
     const data = await sql`Select * from urldata where shorturl=${shortpath} limit 1`;
     if (data.rows.length > 0){
         return new Response(null, {
