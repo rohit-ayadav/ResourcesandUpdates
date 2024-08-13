@@ -141,7 +141,7 @@ Share these links with your network and help everyone stay informed! 🌟
                     <a href="/#faq" style={navLinkStylenav}>FAQ</a>
                     <a href="/team" style={navLinkStylenav}>Team</a>
                 </nav>
-                <div style={hamburgerMenuStyle} onClick={toggleNav}>
+                {/* <div style={hamburgerMenuStyle} onClick={toggleNav}>
                     ☰
                 </div>
 
@@ -151,7 +151,7 @@ Share these links with your network and help everyone stay informed! 🌟
                     <a href="/#contact" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Contact</a>
                     <a href="/#faq" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>FAQ</a>
                     <a href="/team" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Team</a>
-                </nav>
+                </nav> */}
             </div>
             <main style={mainStyle}>
                 <section style={ctaStyle}>
