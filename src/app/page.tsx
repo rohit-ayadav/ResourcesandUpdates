@@ -3,6 +3,7 @@
 import React, { use, useEffect, useState } from "react";
 import { Analytics } from '@vercel/analytics/react';
 import { AppProps } from "next/app";
+import Link from "next/link";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -94,7 +95,7 @@ Share these links with your network and help everyone stay informed! 🌟
 
 
                 }}>
-                    <a href="/#about" style={{
+                    <Link href="/#about" style={{
                         color: "white",
                         textDecoration: "none",
                         fontSize: "18px",
@@ -103,8 +104,8 @@ Share these links with your network and help everyone stay informed! 🌟
                         transition: "border-bottom 0.3s"
                     }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
                         About
-                    </a>
-                    <a href="/#services" style={{
+                    </Link>
+                    <Link href="/#services" style={{
                         color: "white",
                         textDecoration: "none",
                         fontSize: "18px",
@@ -113,8 +114,8 @@ Share these links with your network and help everyone stay informed! 🌟
                         transition: "border-bottom 0.3s"
                     }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
                         Services
-                    </a>
-                    <a href="/#contact" style={{
+                    </Link>
+                    <Link href="/#contact" style={{
                         color: "white",
                         textDecoration: "none",
                         fontSize: "18px",
@@ -123,8 +124,8 @@ Share these links with your network and help everyone stay informed! 🌟
                         transition: "border-bottom 0.3s"
                     }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
                         Contact
-                    </a>
-                    <a href="/#faq" style={{
+                    </Link>
+                    <Link href="/#faq" style={{
                         color: "white",
                         textDecoration: "none",
                         fontSize: "18px",
@@ -133,8 +134,8 @@ Share these links with your network and help everyone stay informed! 🌟
                         transition: "border-bottom 0.3s"
                     }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
                         FAQ
-                    </a>
-                    <a href="/team" style={{
+                    </Link>
+                    <Link href="/team" style={{
                         color: "white",
                         textDecoration: "none",
                         fontSize: "18px",
@@ -143,25 +144,25 @@ Share these links with your network and help everyone stay informed! 🌟
                         transition: "border-bottom 0.3s"
                     }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
                         Team
-                    </a>
+                    </Link>
                 </nav> */}
                 <nav style={desktopNavStyle}>
-                    <a href="/#about" style={navLinkStylenav}>About</a>
-                    <a href="/#services" style={navLinkStylenav}>Services</a>
-                    <a href="/#contact" style={navLinkStylenav}>Contact</a>
-                    <a href="/#faq" style={navLinkStylenav}>FAQ</a>
-                    <a href="/team" style={navLinkStylenav}>Team</a>
+                    <Link href="/#about" style={navLinkStylenav}>About</Link>
+                    <Link href="/#services" style={navLinkStylenav}>Services</Link>
+                    <Link href="/#contact" style={navLinkStylenav}>Contact</Link>
+                    <Link href="/#faq" style={navLinkStylenav}>FAQ</Link>
+                    <Link href="/team" style={navLinkStylenav}>Team</Link>
                 </nav>
                 {/* <div style={hamburgerMenuStyle} onClick={toggleNav}>
                     ☰
                 </div>
 
                 <nav style={mobileNavStyle(navOpen)}>
-                    <a href="/#about" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>About</a>
-                    <a href="/#services" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Services</a>
-                    <a href="/#contact" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Contact</a>
-                    <a href="/#faq" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>FAQ</a>
-                    <a href="/team" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Team</a>
+                    <Link href="/#about" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>About</Link>
+                    <Link href="/#services" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Services</Link>
+                    <Link href="/#contact" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Contact</Link>
+                    <Link href="/#faq" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>FAQ</Link>
+                    <Link href="/team" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Team</Link>
                 </nav> */}
             </div>
             <main style={mainStyle}>
@@ -175,24 +176,21 @@ Share these links with your network and help everyone stay informed! 🌟
                         <h1 style={communityNameStyle}>Resources and Updates</h1>
                         <h2 style={taglineStyle}>Your go-to community for job/internship opportunities in CSE</h2>
                         <div style={{ ...buttonsContainerStyle, flexWrap: "wrap" }}>
-                            <a
-                                href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t"
+                            <Link href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t"
                                 style={buttonStyle as React.CSSProperties}
                             >
                                 📲 Follow WhatsApp Channel
-                            </a>
-                            <a
-                                href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B"
+                            </Link>
+                            <Link href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B"
                                 style={buttonStyle as React.CSSProperties}
                             >
                                 📱 Join WhatsApp Group
-                            </a>
-                            <a
-                                href="https://linkedin.com/company/resources-and-updates/"
+                            </Link>
+                            <Link href="https://linkedin.com/company/resources-and-updates/"
                                 style={buttonStyle as React.CSSProperties}
                             >
                                 🔗 Follow on LinkedIn
-                            </a>
+                            </Link>
                         </div>
                         <button onClick={handleShare} style={shareButtonStyle}>
                             Share with your Friends
@@ -235,9 +233,9 @@ Share these links with your network and help everyone stay informed! 🌟
                             </li>
                             <li style={listItemStyle}>
                                 <strong>URL Shortener Service:</strong> Simplify your link management with our{" "}
-                                <a href="/shortURL" style={navLinkStyle}>
+                                <Link href="/shortURL" style={navLinkStyle}>
                                     URL Shortener Service
-                                </a>
+                                </Link>
                                 . Create, track, and manage short links for your important resources and share them effortlessly.
                             </li>
                         </ol>
@@ -258,27 +256,27 @@ Share these links with your network and help everyone stay informed! 🌟
                         <ul style={listStyle}>
                             <li style={listItemStyle}>
                                 <strong>Email:</strong>{" "}
-                                <a href="mailto:resourcesandupdates@gmail.com" style={navLinkStyle}>
+                                <Link href="mailto:resourcesandupdates@gmail.com" style={navLinkStyle}>
                                     resourcesandupdates@gmail.com
-                                </a>
+                                </Link>
                             </li>
                             <li style={listItemStyle}>
                                 <strong>LinkedIn:</strong>{" "}
-                                <a href="https://linkedin.com/company/resources-and-updates/" style={navLinkStyle}>
+                                <Link href="https://linkedin.com/company/resources-and-updates/" style={navLinkStyle}>
                                     Follow us on LinkedIn
-                                </a>
+                                </Link>
                             </li>
                             <li style={listItemStyle}>
                                 <strong>WhatsApp Channel:</strong>{" "}
-                                <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" style={navLinkStyle}>
+                                <Link href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" style={navLinkStyle}>
                                     Join our WhatsApp Channel
-                                </a>
+                                </Link>
                             </li>
                             <li style={listItemStyle}>
                                 <strong>WhatsApp Group:</strong>{" "}
-                                <a href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" style={navLinkStyle}>
+                                <Link href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" style={navLinkStyle}>
                                     Join our WhatsApp Group
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                         <p style={paragraphStyle}>
@@ -298,13 +296,13 @@ Share these links with your network and help everyone stay informed! 🌟
                             </h3>
                             <p style={faqAnswerStyle}>
                                 Follow our{" "}
-                                <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" style={navLinkStyle}>
+                                <Link href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" style={navLinkStyle}>
                                     WhatsApp Channel
-                                </a>{" "}
+                                </Link>{" "}
                                 or{" "}
-                                <a href="https://linkedin.com/company/resources-and-updates/" style={navLinkStyle}>
+                                <Link href="https://linkedin.com/company/resources-and-updates/" style={navLinkStyle}>
                                     LinkedIn page
-                                </a>{" "}
+                                </Link>{" "}
                                 for real-time updates on job and internship listings.
                             </p>
                         </div>
@@ -314,9 +312,9 @@ Share these links with your network and help everyone stay informed! 🌟
                             </h3>
                             <p style={faqAnswerStyle}>
                                 Yes! We welcome contributions in the form of articles, job leads, and networking tips. Feel free to reach out to us via email at{" "}
-                                <a href="mailto:resourcesandupdates@gmail.com" style={navLinkStyle}>
+                                <Link href="mailto:resourcesandupdates@gmail.com" style={navLinkStyle}>
                                     resourcesandupdates@gmail.com
-                                </a>.
+                                </Link>.
                             </p>
                         </div>
                         <div style={faqItemStyle}>
@@ -334,9 +332,9 @@ Share these links with your network and help everyone stay informed! 🌟
                             <dd>
                                 <p>
                                     You can use our{" "}
-                                    <a href="/shortURL" style={{ color: "#007bff", textDecoration: "none" }}>
+                                    <Link href="/shortURL" style={{ color: "#007bff", textDecoration: "none" }}>
                                         URL Shortener Service
-                                    </a>{" "}
+                                    </Link>{" "}
                                     to manage your short links efficiently.
                                 </p>
                             </dd></div>
@@ -360,9 +358,9 @@ Share these links with your network and help everyone stay informed! 🌟
                 </p>
 
                 <p style={footerTextStyle}>For inquiries, contact us at{" "}
-                    <a href="mailto:resourcesandupdates@gmail.com" style={navLinkStylef}>
+                    <Link href="mailto:resourcesandupdates@gmail.com" style={navLinkStylef}>
                         resourcesandupdates@gmail.com
-                    </a>
+                    </Link>
                 </p>
             </footer>
         </div>
