@@ -1,6 +1,17 @@
 "use client"; // Mark as a Client Component
 
 import React, { use, useEffect, useState } from "react";
+import { Analytics } from '@vercel/analytics/react';
+import { AppProps } from "next/app";
+
+function MyApp({ Component, pageProps }: AppProps) {
+    return (
+      <>
+        <Component {...pageProps} />
+        <Analytics /> {/* Add the Analytics component here */}
+      </>
+    );
+  }
 
 const Page = () => {
     useEffect(() => {
