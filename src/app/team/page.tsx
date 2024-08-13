@@ -35,8 +35,8 @@ export default function TeamPage() {
                 <nav style={navStyle}>
                     <a href="/" style={navLinkStyle}>Home</a>
                     <a href="/#about" style={navLinkStyle}>About</a>
-                    <a href="https://resourcesandcarrier.online/#services" style={navLinkStyle}>Services</a>
-                    <a href="https://resourcesandcarrier.online/#contact" style={navLinkStyle}>Contact</a>
+                    <a href="/#services" style={navLinkStyle}>Services</a>
+                    <a href="/#contact" style={navLinkStyle}>Contact</a>
                 </nav>
             </header>
 
