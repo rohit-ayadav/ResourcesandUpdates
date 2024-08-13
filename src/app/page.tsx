@@ -163,22 +163,22 @@ Share these links with your network and help everyone stay informed! 🌟
                         />
                         <h1 style={communityNameStyle}>Resources and Updates</h1>
                         <h2 style={taglineStyle}>Your go-to community for job/internship opportunities in CSE</h2>
-                        <div style={buttonsContainerStyle}>
+                        <div style={{ ...buttonsContainerStyle, flexWrap: "wrap" }}>
                             <a
                                 href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t"
-                                style={buttonStyle}
+                                style={buttonStyle as React.CSSProperties}
                             >
                                 📲 Follow WhatsApp Channel
                             </a>
                             <a
                                 href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B"
-                                style={buttonStyle}
+                                style={buttonStyle as React.CSSProperties}
                             >
                                 📱 Join WhatsApp Group
                             </a>
                             <a
                                 href="https://linkedin.com/company/resources-and-updates/"
-                                style={buttonStyle}
+                                style={buttonStyle as React.CSSProperties}
                             >
                                 🔗 Follow on LinkedIn
                             </a>
@@ -405,7 +405,7 @@ const mainStyle = {
 };
 
 const ctaStyle = {
-    textAlign: 'center',
+    TextAlign: 'center',
     marginBottom: '2rem',
 };
 
@@ -435,6 +435,7 @@ const taglineStyle = {
     color: '#6c757d',
     margin: '0.5rem 0',
 };
+
 
 const buttonsContainerStyle = {
     display: 'flex',
