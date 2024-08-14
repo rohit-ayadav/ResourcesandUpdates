@@ -206,10 +206,16 @@ Share these links with your network and help everyone stay informed! 🌟
                             >
                                 Team Members
                             </Link>
+                            <Link href="/resources"
+                                style={buttonStyle as React.CSSProperties}
+                            >
+                                See Some Important Resources
+                            </Link>
                         </div>
                         <button onClick={handleShare} style={shareButtonStyle}>
                             Share with your Friends
                         </button>
+                        
                     </div>
                 </section>
 

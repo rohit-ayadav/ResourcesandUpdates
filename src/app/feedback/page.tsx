@@ -20,7 +20,6 @@ export default function FeedbackPage() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission logic (store locally or send via email)
         console.log('Form submitted:', formData);
     };
 
