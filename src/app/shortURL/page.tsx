@@ -1,5 +1,6 @@
 "use client"; // This directive makes the component a client component, allowing for interactivity
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function ShortenPage() {
@@ -123,10 +124,10 @@ export default function ShortenPage() {
                     <h1 style={headerTitleStyle}>Resources and Updates</h1>
                 </div>
                 <nav style={navStyle}>
-                    <a href="https://resourcesandcarrier.online" style={navLinkStyle}>Home</a>
-                    <a href="https://resourcesandcarrier.online/#about" style={navLinkStyle}>About</a>
-                    <a href="https://resourcesandcarrier.online/#services" style={navLinkStyle}>Services</a>
-                    <a href="https://resourcesandcarrier.online/#contact" style={navLinkStyle}>Contact</a>
+                    <Link href="https://resourcesandcarrier.online" style={navLinkStyle}>Home</Link>
+                    <Link href="https://resourcesandcarrier.online/#about" style={navLinkStyle}>About</Link>
+                    <Link href="https://resourcesandcarrier.online/#services" style={navLinkStyle}>Services</Link>
+                    <Link href="https://resourcesandcarrier.online/#contact" style={navLinkStyle}>Contact</Link>
                    </nav>
             </header>
 
@@ -200,15 +201,15 @@ export default function ShortenPage() {
 
             <footer style={footerStyle}>
                 <p>Join our community for more updates!</p>
-                {/* <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" target="_blank" rel="noopener noreferrer" style={linkStyle}>
+                {/* <Link href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" target="_blank" rel="noopener noreferrer" style={linkStyle}>
                     Follow on WhatsApp
-                </a> */}
+                </Link> */}
                 <div style={socialLinksStyle}>
-                    <a href="https://linkedin.com/company/resources-and-updates/" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>LinkedIn</a>
-                    <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Channel</a>
-                    <a href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Group</a>
+                    <Link href="https://linkedin.com/company/resources-and-updates/" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>LinkedIn</Link>
+                    <Link href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Channel</Link>
+                    <Link href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Group</Link>
                 </div>
-                <p style={footerTextStyle}>For inquiries, email us at <a href="mailto:resourcesandupdates@gmail.com" style={linkStyle}>resourcesandupdates@gmail.com</a></p>
+                <p style={footerTextStyle}>For inquiries, email us at <Link href="mailto:resourcesandupdates@gmail.com" style={linkStyle}>resourcesandupdates@gmail.com</Link></p>
             </footer>
         </div>
     );

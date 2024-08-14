@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 interface TeamMemberProps {
@@ -17,8 +18,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, position, message, image,
             <p style={memberPositionStyle}>{position}</p>
             <p style={memberMessageStyle}>{message}</p>
             <div style={contactButtonsStyle}>
-                <a href={linkedin} target="_blank" rel="noopener noreferrer" style={contactButtonStyle}>LinkedIn</a>
-                <a href={`mailto:${email}`} style={contactButtonStyle}>Email</a>
+                <Link href={linkedin} target="_blank" rel="noopener noreferrer" style={contactButtonStyle}>LinkedIn</Link>
+                <Link href={`mailto:${email}`} style={contactButtonStyle}>Email</Link>
             </div>
         </div>
     </div>
@@ -33,10 +34,10 @@ export default function TeamPage() {
                     <h1 style={headerTitleStyle}>Resources and Updates</h1>
                 </div>
                 <nav style={navStyle}>
-                    <a href="/" style={navLinkStyle}>Home</a>
-                    <a href="/#about" style={navLinkStyle}>About</a>
-                    <a href="/#services" style={navLinkStyle}>Services</a>
-                    <a href="/#contact" style={navLinkStyle}>Contact</a>
+                    <Link href="/" style={navLinkStyle}>Home</Link>
+                    <Link href="/#about" style={navLinkStyle}>About</Link>
+                    <Link href="/#services" style={navLinkStyle}>Services</Link>
+                    <Link href="/#contact" style={navLinkStyle}>Contact</Link>
                 </nav>
             </header>
 
@@ -81,11 +82,11 @@ export default function TeamPage() {
             <footer style={footerStyle}>
                 <p>Join our community for more updates!</p>
                 <div style={socialLinksStyle}>
-                    <a href="https://linkedin.com/company/resources-and-updates/" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>LinkedIn</a>
-                    <a href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Channel</a>
-                    <a href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Group</a>
+                    <Link href="https://linkedin.com/company/resources-and-updates/" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>LinkedIn</Link>
+                    <Link href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Channel</Link>
+                    <Link href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Group</Link>
                 </div>
-                <p style={footerTextStyle}>For inquiries, email us at <a href="mailto:resourcesandupdates@gmail.com" style={linkStyle}>resourcesandupdates@gmail.com</a></p>
+                <p style={footerTextStyle}>For inquiries, email us at <Link href="mailto:resourcesandupdates@gmail.com" style={linkStyle}>resourcesandupdates@gmail.com</Link></p>
             </footer>
         </div>
     );
