@@ -191,6 +191,21 @@ Share these links with your network and help everyone stay informed! 🌟
                             >
                                 🔗 Follow on LinkedIn
                             </Link>
+                            <Link href="/feedback"
+                                style={buttonStyle as React.CSSProperties}
+                            >
+                                Feedback and Suggestion
+                            </Link>
+                            <Link href="/shortURL"
+                                style={buttonStyle as React.CSSProperties}
+                            >
+                                🔗 URL Shortener
+                            </Link>
+                            <Link href="/team"
+                                style={buttonStyle as React.CSSProperties}
+                            >
+                                Team Members
+                            </Link>
                         </div>
                         <button onClick={handleShare} style={shareButtonStyle}>
                             Share with your Friends
