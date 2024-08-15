@@ -64,79 +64,82 @@ export default function FeedbackPage() {
 
             <main style={mainContentStyle}>
                 <h2 style={subHeaderStyle}>Feedback / Suggestion / Enquiry</h2>
-                {/* <p style={warningTextStyle}>This feature is not working now, it will start soon.</p> */}
-                <form onSubmit={handleSubmit} style={formStyle}>
-                    <div style={inputGroupStyle}>
-                        <label htmlFor="name" style={labelStyle}>Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            style={inputStyle}
-                            required
-                        />
-                    </div>
+                {!submitted ? (
+                    <form onSubmit={handleSubmit} style={formStyle}>
+                        <label htmlFor="name">Fill as per instructed</label>
+                        <div style={inputGroupStyle}>
+                            <label htmlFor="name" style={labelStyle}>Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                style={inputStyle}
+                                required
+                            />
+                        </div>
 
-                    <div style={inputGroupStyle}>
-                        <label htmlFor="email" style={labelStyle}>Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            style={inputStyle}
-                            required
-                        />
-                    </div>
+                        <div style={inputGroupStyle}>
+                            <label htmlFor="email" style={labelStyle}>Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                style={inputStyle}
+                                required
+                            />
+                        </div>
 
-                    <div style={inputGroupStyle}>
-                        <label htmlFor="whatsapp" style={labelStyle}>WhatsApp Number</label>
-                        <input
-                            type="tel"
-                            id="whatsapp"
-                            name="whatsapp"
-                            value={formData.whatsapp}
-                            onChange={handleChange}
-                            style={inputStyle}
-                            required
-                        />
-                    </div>
+                        <div style={inputGroupStyle}>
+                            <label htmlFor="whatsapp" style={labelStyle}>WhatsApp Number</label>
+                            <input
+                                type="tel"
+                                id="whatsapp"
+                                name="whatsapp"
+                                value={formData.whatsapp}
+                                onChange={handleChange}
+                                style={inputStyle}
+                                required
+                            />
+                        </div>
 
-                    <div style={inputGroupStyle}>
-                        <label htmlFor="type" style={labelStyle}>Type</label>
-                        <select
-                            id="type"
-                            name="type"
-                            value={formData.type}
-                            onChange={handleChange}
-                            style={selectStyle}
-                            required
-                        >
-                            <option value="Feedback">Feedback</option>
-                            <option value="Suggestion">Suggestion</option>
-                            <option value="Enquiry">Enquiry</option>
-                        </select>
-                    </div>
+                        <div style={inputGroupStyle}>
+                            <label htmlFor="type" style={labelStyle}>Type</label>
+                            <select
+                                id="type"
+                                name="type"
+                                value={formData.type}
+                                onChange={handleChange}
+                                style={selectStyle}
+                                required
+                            >
+                                <option value="Feedback">Feedback</option>
+                                <option value="Suggestion">Suggestion</option>
+                                <option value="Enquiry">Enquiry</option>
+                            </select>
+                        </div>
 
-                    <div style={inputGroupStyle}>
-                        <label htmlFor="message" style={labelStyle}>Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            style={textareaStyle}
-                            required
-                        />
-                    </div>
+                        <div style={inputGroupStyle}>
+                            <label htmlFor="message" style={labelStyle}>Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
+                                style={textareaStyle}
+                                required
+                            />
+                        </div>
 
-                    <button type="submit" style={submitButtonStyle}>Submit</button>
-                </form>
+                        <button type="submit" style={submitButtonStyle}>Submit</button>
+                    </form>
+                ) : (
+                    <p>Thank you for your submission! Redirecting to the homepage...</p>
+                )}
             </main>
-
             <footer style={footerStyle}>
                 <p>Join our community for more updates!</p>
                 <div style={socialLinksStyle}>
