@@ -1,13 +1,17 @@
-"use client"; 
-import Link from 'next/link';
+"use client";
+
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function FeedbackPage() {
+    const router = useRouter();
+    const [submitted, setSubmitted] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         whatsapp: '',
-        type: 'Feedback',
+        type: '',
         message: '',
     });
 
@@ -18,9 +22,29 @@ export default function FeedbackPage() {
         });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
+        setSubmitted(true);
+
+        // Prepare the data to send to Google Forms
+        const googleFormData = new FormData();
+        googleFormData.append('entry.915605613', formData.name);
+        googleFormData.append('entry.1550172868', formData.email);
+        googleFormData.append('entry.1228321520', formData.whatsapp);
+        googleFormData.append('entry.1870444447', formData.type);
+        googleFormData.append('entry.67651764', formData.message);
+
+        // Send a POST request to the Google Form
+        await fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSf_8PvseG_jxfWCj47PRwR9l-RFlQyo_7ffKG1D25M0NcJY6g/formResponse', {
+            method: 'POST',
+            body: googleFormData,
+            mode: 'no-cors',
+        });
+
+        // Redirect to the homepage after 3 seconds
+        setTimeout(() => {
+            router.push('/');
+        }, 3000);
     };
 
     return (
@@ -40,7 +64,7 @@ export default function FeedbackPage() {
 
             <main style={mainContentStyle}>
                 <h2 style={subHeaderStyle}>Feedback / Suggestion / Enquiry</h2>
-                <p style={warningTextStyle}>This feature is not working now, it will start soon.</p>
+                {/* <p style={warningTextStyle}>This feature is not working now, it will start soon.</p> */}
                 <form onSubmit={handleSubmit} style={formStyle}>
                     <div style={inputGroupStyle}>
                         <label htmlFor="name" style={labelStyle}>Name</label>
