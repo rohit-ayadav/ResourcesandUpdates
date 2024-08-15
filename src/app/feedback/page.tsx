@@ -15,6 +15,50 @@ export default function FeedbackPage() {
         message: '',
     });
 
+    const [errors, setErrors] = useState({
+        name: '',
+        email: '',
+        whatsapp: '',
+        message: '',
+    });
+
+    const validateForm = () => {
+        let valid = true;
+        let newErrors = { name: '', email: '', whatsapp: '', message: '' };
+
+        if (!formData.name.trim()) {
+            newErrors.name = 'Name is required.';
+            valid = false;
+        }
+
+        if (!formData.email.trim()) {
+            newErrors.email = 'Email is required.';
+            valid = false;
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            newErrors.email = 'Invalid email address.';
+            valid = false;
+        }
+
+        if (!formData.whatsapp.trim()) {
+            newErrors.whatsapp = 'WhatsApp number is required.';
+            valid = false;
+        } else if (!/^\d{10}$/.test(formData.whatsapp)) {
+            newErrors.whatsapp = 'WhatsApp number must be 10 digits.';
+            valid = false;
+        }
+
+        if (!formData.message.trim()) {
+            newErrors.message = 'Message is required.';
+            valid = false;
+        } else if (formData.message.length < 10) {
+            newErrors.message = 'Message must be at least 10 characters long.';
+            valid = false;
+        }
+
+        setErrors(newErrors);
+        return valid;
+    };
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({
             ...formData,
@@ -24,6 +68,11 @@ export default function FeedbackPage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (!validateForm()) {
+            return;
+        }
+
         setSubmitted(true);
 
         // Prepare the data to send to Google Forms
@@ -78,6 +127,7 @@ export default function FeedbackPage() {
                                 style={inputStyle}
                                 required
                             />
+                            {errors.name && <p style={errorStyle}>{errors.name}</p>}
                         </div>
 
                         <div style={inputGroupStyle}>
@@ -91,6 +141,7 @@ export default function FeedbackPage() {
                                 style={inputStyle}
                                 required
                             />
+                            {errors.email && <p style={errorStyle}>{errors.email}</p>}
                         </div>
 
                         <div style={inputGroupStyle}>
@@ -104,6 +155,7 @@ export default function FeedbackPage() {
                                 style={inputStyle}
                                 required
                             />
+                            {errors.whatsapp && <p style={errorStyle}>{errors.whatsapp}</p>}
                         </div>
 
                         <div style={inputGroupStyle}>
@@ -132,6 +184,7 @@ export default function FeedbackPage() {
                                 style={textareaStyle}
                                 required
                             />
+                            {errors.message && <p style={errorStyle}>{errors.message}</p>}
                         </div>
 
                         <button type="submit" style={submitButtonStyle}>Submit</button>
@@ -298,4 +351,10 @@ const footerTextStyle = {
 const linkStyle = {
     color: '#007bff',
     textDecoration: 'none' as const,
+};
+
+
+const errorStyle = {
+    color: 'red',
+    fontSize: '0.9em',
 };
