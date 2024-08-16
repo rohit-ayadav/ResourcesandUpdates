@@ -7,12 +7,12 @@ import Link from "next/link";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-      <>
-        <Component {...pageProps} />
-        <Analytics /> {/* Add the Analytics component here */}
-      </>
+        <>
+            <Component {...pageProps} />
+            <Analytics /> {/* Add the Analytics component here */}
+        </>
     );
-  }
+}
 
 const Page = () => {
     useEffect(() => {
@@ -216,6 +216,11 @@ Share these links with your network and help everyone stay informed! 🌟
                             Share with your Friends
                         </button>
                         
+                        <button
+                            onClick={() => window.location.href = '/support-us'}
+                            style={shareButtonStyle}>
+                            Support Us
+                        </button>
                     </div>
                 </section>
 
@@ -497,7 +502,7 @@ const shareButtonStyle = {
     display: 'block',
     width: '100%',
     textDecoration: 'none',
-    
+
 };
 
 const sectionStyle = {
