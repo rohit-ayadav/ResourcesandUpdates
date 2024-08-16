@@ -26,7 +26,9 @@ export default function DonatePage() {
                     Your support helps us continue our mission of providing valuable resources and updates to the community. Every contribution, big or small, makes a difference.
                 </p>
                 <div style={donationContainerStyle}>
-                    <a href="upi://pay?pa=9721235063584@paytm&pn=PaytmUser&mc=0000&mode=02&purpose=00&orgid=159761&cust=1523273621" style={donateButtonStyle}>Donate via UPI</a>
+                    <a href="upi://pay?pa=9721235063584@paytm&pn=Resources%20and%20Updates&mc=0000&mode=02&purpose=Donation&orgid=159761&cust=1523273621" style={donateButtonStyle}>Donate what you want</a>
+                    <img src="/scanner-paytm.jpg" alt="Scan to Pay" style={scannerImageStyle} />
+                    <a href="upi://pay?pa=9721235063584@paytm&pn=Resources%20and%20Updates&mc=0000&mode=02&purpose=Donation&orgid=159761&cust=1523273621&am=100.50&cu=INR" style={donateButtonStyle}>Pay Specific</a>
                     <img src="/scanner-paytm.jpg" alt="Scan to Pay" style={scannerImageStyle} />
                 </div>
             </main>
