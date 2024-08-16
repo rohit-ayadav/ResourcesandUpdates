@@ -200,7 +200,7 @@ export default function FeedbackPage() {
                     <Link href="https://whatsapp.com/channel/0029VaVd6px8KMqnZk7qGJ2t" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Channel</Link>
                     <Link href="https://chat.whatsapp.com/DbHNlqyUrjX3TaRFhcAm2B" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>WhatsApp Group</Link>
                 </div>
-                <p style={footerTextStyle}>For inquiries, email us at <Link href="mailto:resourcesandupdates@gmail.com" style={linkStyle}>resourcesandupdates@gmail.com</Link></p>
+                <p style={footerTextStyle}>For inquiries, reach us at <Link href="/feedback" style={linkStyle}>resourcesandupdates@gmail.com</Link></p>
             </footer>
         </div>
     );
