@@ -84,68 +84,7 @@ Share these links with your network and help everyone stay informed! 🌟
                     </div>
                 </header>
 
-                {/* <nav style={{
-
-                    display: "flex",
-                    justifyContent: "center",
-                    padding: "10px 0",
-                    backgroundColor: "#0056b3",
-                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
-                    //change in hamburger menu in mobile view 
-
-
-                }}>
-                    <Link href="/#about" style={{
-                        color: "white",
-                        textDecoration: "none",
-                        fontSize: "18px",
-                        padding: "0 15px",
-                        borderBottom: "2px solid transparent",
-                        transition: "border-bottom 0.3s"
-                    }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
-                        About
-                    </Link>
-                    <Link href="/#services" style={{
-                        color: "white",
-                        textDecoration: "none",
-                        fontSize: "18px",
-                        padding: "0 15px",
-                        borderBottom: "2px solid transparent",
-                        transition: "border-bottom 0.3s"
-                    }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
-                        Services
-                    </Link>
-                    <Link href="/#contact" style={{
-                        color: "white",
-                        textDecoration: "none",
-                        fontSize: "18px",
-                        padding: "0 15px",
-                        borderBottom: "2px solid transparent",
-                        transition: "border-bottom 0.3s"
-                    }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
-                        Contact
-                    </Link>
-                    <Link href="/#faq" style={{
-                        color: "white",
-                        textDecoration: "none",
-                        fontSize: "18px",
-                        padding: "0 15px",
-                        borderBottom: "2px solid transparent",
-                        transition: "border-bottom 0.3s"
-                    }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
-                        FAQ
-                    </Link>
-                    <Link href="/team" style={{
-                        color: "white",
-                        textDecoration: "none",
-                        fontSize: "18px",
-                        padding: "0 15px",
-                        borderBottom: "2px solid transparent",
-                        transition: "border-bottom 0.3s"
-                    }} onMouseOver={e => e.currentTarget.style.borderBottom = "2px solid white"} onMouseOut={e => e.currentTarget.style.borderBottom = "2px solid transparent"}>
-                        Team
-                    </Link>
-                </nav> */}
+             
                 <nav style={desktopNavStyle}>
                     <Link href="/#about" style={navLinkStylenav}>About</Link>
                     <Link href="/#services" style={navLinkStylenav}>Services</Link>
@@ -153,17 +92,7 @@ Share these links with your network and help everyone stay informed! 🌟
                     <Link href="/#faq" style={navLinkStylenav}>FAQ</Link>
                     <Link href="/team" style={navLinkStylenav}>Team</Link>
                 </nav>
-                {/* <div style={hamburgerMenuStyle} onClick={toggleNav}>
-                    ☰
-                </div>
-
-                <nav style={mobileNavStyle(navOpen)}>
-                    <Link href="/#about" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>About</Link>
-                    <Link href="/#services" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Services</Link>
-                    <Link href="/#contact" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Contact</Link>
-                    <Link href="/#faq" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>FAQ</Link>
-                    <Link href="/team" style={navLinkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Team</Link>
-                </nav> */}
+              
             </div>
             <main style={mainStyle}>
                 <section style={ctaStyle}>
